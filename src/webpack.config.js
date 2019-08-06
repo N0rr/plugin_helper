@@ -3,66 +3,51 @@
 const path = require('path');
 const cwd = process.cwd();
 const webpack = tars.require('webpack');
-const WriteFilePlugin = require('write-file-webpack-plugin');
+const TerserJsPlugin = tars.require('terser-webpack-plugin');
 
 const staticFolderName = tars.config.fs.staticFolderName;
-const isBackendDevMode = tars.flags.backend;
-const compressJs = tars.flags.release || tars.flags.min;
+const compressJs = tars.flags.release || tars.flags.min || tars.flags.m;
 const generateSourceMaps = tars.config.sourcemaps.js.active && tars.isDevMode;
 const sourceMapsDest = tars.config.sourcemaps.js.inline ? 'inline-' : '';
 const sourceMapsType = `#${sourceMapsDest}source-map`;
-const outputPath = isBackendDevMode ? path.resolve(`${cwd}/${tars.options.build.path}/${staticFolderName}/js`) : path.resolve(`${cwd}/dev/${staticFolderName}/js`);
+const webpackMode = !compressJs ? 'development' : 'production';
 
 let outputFileNameTemplate = '[name]';
 let modulesDirectories = ['node_modules'];
-let preLoaders = [
+let rules = [
     {
         test: /\.js$/,
-        loader: 'source-map-loader'
+        loader: 'source-map-loader',
+        enforce: 'pre'
     }
 ];
-let loaders = [{
-    test: /\.json$/,
-    loader: 'json'
-}];
 let plugins = [
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: ({ resource }) => /node_modules/.test(resource),
     })
 ];
+let minimizers = [];
 
 if (process.env.npmRoot) {
     modulesDirectories.push(process.env.npmRoot);
 }
 
-if (isBackendDevMode) {
-    outputFileNameTemplate += '.min';
-    plugins.push(
-        new WriteFilePlugin({
-            log: false
-        })
-    );
-}
-
 if (compressJs) {
-    outputFileNameTemplate += '.min';
-    plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                /* eslint-disable camelcase */
-                drop_console: tars.config.js.removeConsoleLog,
-                drop_debugger: tars.config.js.removeConsoleLog
-                /* eslint-enable camelcase */
-            },
-            mangle: false
-        }),
-        new webpack.optimize.DedupePlugin()
+    outputFileNameTemplate += `${tars.options.build.hash}.min`;
+    minimizers.push(
+        new TerserJsPlugin({
+            terserOptions: {
+                compress: {
+                    /* eslint-disable camelcase */
+                    drop_console: tars.config.js.removeConsoleLog,
+                    drop_debugger: tars.config.js.removeConsoleLog
+                    /* eslint-enable camelcase */
+                },
+                mangle: false
+            }
+        })
     );
 }
 
@@ -79,21 +64,24 @@ if (tars.options.watch.isActive && tars.config.js.webpack.useHMR) {
 }
 
 if (tars.config.js.lint) {
-    preLoaders.push(
+    rules.push(
         {
             test: /\.js$/,
             loader: 'eslint-loader',
-            include: `${cwd}/markup`
+            enforce: 'pre',
+            include: `${cwd}/markup`,
+            options: {
+                configFile: `${cwd}/.eslintrc`
+            }
         }
     );
 }
 
 if (tars.config.js.useBabel) {
-    loaders.push(
+    rules.push(
         {
             test: /\.js$/,
-            loader: 'babel',
-            exclude: /(node_modules|bower_components)/,
+            loader: 'babel-loader',
             include: /markup/
         }
     );
@@ -128,54 +116,42 @@ function prepareEntryPoints(entryConfig) {
 
     return entryConfig;
 }
-
 module.exports = {
+    mode: webpackMode,
     // We have to add some pathes to entry point in case of using HMR
-
     entry: prepareEntryPoints({
-        [`main${tars.options.build.hash}`]: path.resolve(`${cwd}/markup/${staticFolderName}/js/main.js`)
+        main: path.resolve(`${cwd}/markup/${staticFolderName}/js/main.js`)
     }),
 
     output: {
-        path: outputPath,
+        path: path.resolve(`${(tars.isDevMode) ? `${tars.config.devPath}` : `${tars.options.build.path}`}/${staticFolderName}/js`),
         publicPath: `./${staticFolderName}/js/`,
-        filename: `${outputFileNameTemplate}.js`,
-        chunkFilename: '[name]-[chunkhash].js',
+        filename: `${outputFileNameTemplate}.js`
     },
 
-    externals: {
-        'jquery': 'jQuery',
-    },
-
-    devServer: {
-        outputPath: tars.options.build.path
-    },
-
-    devtool: generateSourceMaps ? sourceMapsType : null,
+    devtool: generateSourceMaps ? sourceMapsType : false,
 
     watch: tars.options.watch.isActive && !tars.config.js.webpack.useHMR,
 
     module: {
-        preLoaders,
-        loaders
+        rules
     },
 
     plugins,
 
     resolveLoader: {
-        modulesDirectories
+        modules: modulesDirectories
+    },
+
+    optimization: {
+        minimizer: minimizers
     },
 
     resolve: {
         alias: {
-            'helpers-js': path.resolve(`./markup/${staticFolderName}/js/helpers-js`),
             modules: path.resolve(`./markup/${tars.config.fs.componentsFolderName}`),
             components: path.resolve(`./markup/${tars.config.fs.componentsFolderName}`),
             static: path.resolve(`./markup/${staticFolderName}`)
         }
-    },
-
-    eslint: {
-        configFile: `${cwd}/.eslintrc`
     }
 };

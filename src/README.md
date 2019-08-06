@@ -5,7 +5,7 @@
 **НОВЫЙ ПРОЕКТ**
 
 ```
-mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'https://github.com/N0rr/tars/archive/master.zip' && npm run init
+mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'https://gitlab.com/N0rr/tars/repository/archive.zip?ref=master' && npm run init
 
 ```
 

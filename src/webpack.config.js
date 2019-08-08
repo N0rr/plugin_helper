@@ -6,11 +6,13 @@ const webpack = tars.require('webpack');
 const TerserJsPlugin = tars.require('terser-webpack-plugin');
 
 const staticFolderName = tars.config.fs.staticFolderName;
+const isBackendDevMode = tars.flags.backend;
 const compressJs = tars.flags.release || tars.flags.min || tars.flags.m;
 const generateSourceMaps = tars.config.sourcemaps.js.active && tars.isDevMode;
 const sourceMapsDest = tars.config.sourcemaps.js.inline ? 'inline-' : '';
 const sourceMapsType = `#${sourceMapsDest}source-map`;
 const webpackMode = !compressJs ? 'development' : 'production';
+const outputPath = isBackendDevMode ? path.resolve(`${cwd}/${tars.options.build.path}/${staticFolderName}/js`) : path.resolve(`${cwd}/dev/${staticFolderName}/js`);
 
 let outputFileNameTemplate = '[name]';
 let modulesDirectories = ['node_modules'];
@@ -120,16 +122,24 @@ module.exports = {
     mode: webpackMode,
     // We have to add some pathes to entry point in case of using HMR
     entry: prepareEntryPoints({
-        main: path.resolve(`${cwd}/markup/${staticFolderName}/js/main.js`)
+        [`main${tars.options.build.hash}`]: path.resolve(`${cwd}/markup/${staticFolderName}/js/main.js`)
     }),
 
     output: {
-        path: path.resolve(`${(tars.isDevMode) ? `${tars.config.devPath}` : `${tars.options.build.path}`}/${staticFolderName}/js`),
+        path: outputPath,
         publicPath: `./${staticFolderName}/js/`,
         filename: `${outputFileNameTemplate}.js`
     },
 
-    devtool: generateSourceMaps ? sourceMapsType : false,
+    externals: {
+        'jquery': 'jQuery',
+    },
+
+    devServer: {
+        outputPath: tars.options.build.path
+    },
+
+    devtool: generateSourceMaps ? sourceMapsType : null,
 
     watch: tars.options.watch.isActive && !tars.config.js.webpack.useHMR,
 
@@ -149,6 +159,7 @@ module.exports = {
 
     resolve: {
         alias: {
+            'helpers-js': path.resolve(`./markup/${staticFolderName}/js/helpers-js`),
             modules: path.resolve(`./markup/${tars.config.fs.componentsFolderName}`),
             components: path.resolve(`./markup/${tars.config.fs.componentsFolderName}`),
             static: path.resolve(`./markup/${staticFolderName}`)

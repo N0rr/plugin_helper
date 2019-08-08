@@ -1,11 +1,251 @@
-const cssOrder = require('./css-order');
-
 module.exports = {
     "postcss": [],
     "postscss": [
         {
             "name": "postcss-sorting",
-            "options": cssOrder
+            "options": {
+                "unspecified-properties-position": "bottomAlphabetical",
+                "rule-nested-empty-line-before:": [
+                    true
+                ],
+                "at-rule-nested-empty-line-before": [
+                    true,
+                    {
+                        "except": [
+                            "blockless-after-same-name-blockless",
+                            "first-nested"
+                        ]
+                    }
+                ],
+                "custom-property-empty-line-before": [
+                    true,
+                    {
+                        "except": [
+                            "after-custom-property",
+                            "first-nested"
+                        ]
+                    }
+                ],
+                "dollar-variable-empty-line-before": [
+                    false
+                ],
+                "order": [
+                    "custom-properties",
+                    "dollar-variables",
+                    {
+                        "type": "at-rule",
+                        "name": "extend"
+                    },
+                    {
+                        "type": "at-rule",
+                        "name": "include",
+                        "hasBlock": false
+                    },
+                    "declarations",
+                    "at-rules",
+                    {
+                        "type": "at-rule",
+                        "name": "include",
+                        "hasBlock": true
+                    },
+                    "rules"
+                ],
+                "properties-order": [
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "content"
+                        ]
+                    },
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "position",
+                            "z-index",
+                            "top",
+                            "right",
+                            "bottom",
+                            "left"
+                        ]
+                    },
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "display",
+                            "box-sizing",
+                            "flex-flow",
+                            "flex-direction",
+                            "flex-wrap",
+                            "align-items",
+                            "align-content",
+                            "justify-content",
+                            "flex",
+                            "order",
+                            "align-self",
+                            "flex-grow",
+                            "flex-shrink",
+                            "flex-basis",
+                            "float",
+                            "clear",
+                            "width",
+                            "min-width",
+                            "max-width",
+                            "height",
+                            "min-height",
+                            "max-height",
+                            "padding",
+                            "padding-top",
+                            "padding-right",
+                            "padding-bottom",
+                            "padding-left",
+                            "margin",
+                            "margin-top",
+                            "margin-right",
+                            "margin-bottom",
+                            "margin-left",
+                            "overflow",
+                            "overflow-x",
+                            "overflow-y",
+                            "clip",
+                            "zoom",
+                            "resize",
+                            "table-layout",
+                            "empty-cells",
+                            "caption-side",
+                            "border-spacing",
+                            "border-collapse"
+                        ]
+                    },
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "font",
+                            "font-family",
+                            "font-size",
+                            "font-weight",
+                            "font-style",
+                            "font-variant",
+                            "font-size-adjust",
+                            "font-stretch",
+                            "font-effect",
+                            "font-emphasize",
+                            "font-emphasize-position",
+                            "font-emphasize-style",
+                            "font-smooth",
+                            "line-height",
+                            "color",
+                            "text-align",
+                            "text-align-last",
+                            "vertical-align",
+                            "white-space",
+                            "text-decoration",
+                            "text-emphasis",
+                            "text-emphasis-color",
+                            "text-emphasis-style",
+                            "text-emphasis-position",
+                            "text-indent",
+                            "text-justify",
+                            "text-transform",
+                            "letter-spacing",
+                            "word-spacing",
+                            "text-outline",
+                            "text-transform",
+                            "text-wrap",
+                            "text-overflow",
+                            "text-overflow-ellipsis",
+                            "text-overflow-mode",
+                            "text-shadow",
+                            "word-wrap",
+                            "word-break",
+                            "hyphens"
+                        ]
+                    },
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "border",
+                            "border-collapse",
+                            "border-width",
+                            "border-style",
+                            "border-color",
+                            "border-top",
+                            "border-top-width",
+                            "border-top-style",
+                            "border-top-color",
+                            "border-right",
+                            "border-right-width",
+                            "border-right-style",
+                            "border-right-color",
+                            "border-bottom",
+                            "border-bottom-width",
+                            "border-bottom-style",
+                            "border-bottom-color",
+                            "border-left",
+                            "border-left-width",
+                            "border-left-style",
+                            "border-left-color",
+                            "border-radius",
+                            "border-top-left-radius",
+                            "border-top-right-radius",
+                            "border-bottom-right-radius",
+                            "border-bottom-left-radius",
+                            "border-image",
+                            "border-image-source",
+                            "border-image-slice",
+                            "border-image-width",
+                            "border-image-outset",
+                            "border-image-repeat",
+                            "background",
+                            "background-color",
+                            "background-image",
+                            "background-repeat",
+                            "background-attachment",
+                            "background-position",
+                            "background-position-x",
+                            "background-position-y",
+                            "background-clip",
+                            "background-origin",
+                            "background-size",
+                            "box-decoration-break",
+                            "box-shadow",
+                            "cursor",
+                            "opacity",
+                            "outline",
+                            "outline-width",
+                            "outline-style",
+                            "outline-color",
+                            "outline-offset",
+                            "transform",
+                            "transform-origin",
+                            "list-style",
+                            "list-style-position",
+                            "list-style-type",
+                            "list-style-image",
+                            "visibility",
+                            "user-select"
+                        ]
+                    },
+                    {
+                        "emptyLineBefore": true,
+                        "properties": [
+                            "animation",
+                            "animation-name",
+                            "animation-duration",
+                            "animation-play-state",
+                            "animation-timing-function",
+                            "animation-delay",
+                            "animation-iteration-count",
+                            "animation-direction",
+                            "transition",
+                            "transition-delay",
+                            "transition-timing-function",
+                            "transition-duration",
+                            "transition-property",
+                            "will-change"
+                        ]
+                    }
+                ]
+            }
         }
     ],
     "svg": {
@@ -20,44 +260,15 @@ module.exports = {
     "css": {
         "workflow": "manual"
     },
-
-    js: {
-        // concat, modular
-        workflow: 'modular',
-
-        // Only webpack is available right now
-        bundler: 'webpack',
-
-        /**
-         * Use linting of js-files
-         * @type {Boolean}
-         */
-        lint: true,
-
-        /**
-         * Use babel for ES6(ES7-ESNext) syntax support
-         * @type {Boolean}
-         */
-        useBabel: true,
-
-        /**
-         * Remove console.log and debugger from js code in release mode
-         * @type {Boolean}
-         */
-        removeConsoleLog: true,
-
-        // Special config for webpack
-        webpack: {
-            useHMR: false,
-
-            /**
-             * Automatically loaded modules.
-             * Module (value) is loaded when the identifier (key) is used as free variable in a module.
-             * The identifier is filled with the exports of the loaded module.
-             * Example: {$: "jquery"} or {React: 'react'}
-             * @type {Object}
-             */
-            providePlugin: {}
+    "js": {
+        "workflow": "modular",
+        "bundler": "webpack",
+        "lint": true,
+        "useBabel": true,
+        "removeConsoleLog": true,
+        "webpack": {
+            "useHMR": false,
+            "providePlugin": {}
         },
         "jsPathsToConcatBeforeModulesJs": [],
         "lintJsCodeBeforeModules": false,
@@ -80,120 +291,21 @@ module.exports = {
         "sounds": {},
         "taskFinishedText": "Task finished at: "
     },
-
-    /**
-     * Minify result html in build version
-     * If is set to false, compiled html will be prettified
-     * @type {Boolean}
-     */
-    minifyHtml: false,
-
-    /**
-     * TARS will generate relative path from current page
-     * to static files in case of true value
-     * @type {Boolean}
-     */
-    generateStaticPath: true,
-
-    /**
-     * Path to build version of project
-     * Could be like '../../../build' or absolute path
-     * @type {String}
-     */
-    buildPath: '../build/',
-
-    /**
-     * Use build versioning
-     * Build version is a date ot building
-     * @type {Boolean}
-     */
-    useBuildVersioning: false,
-
-    /**
-     * Use archiver for your build
-     * @type {Boolean}
-     */
-    useArchiver: false,
-
-    /**
-     * Set ulimit. Topical for Linux-family OS and OSX.
-     * @type {Number}
-     */
-    ulimit: 4096,
-
-    //////////////////////////////////////////////
-    //////////////////////////////////////////////
-
-    ////////////////////////////////////////////////////////
-    // YOU CAN CHANGE THIS OPTIONS AND USE REINIT         //
-    //                                                    //
-    // Options for technologies, which you'd like to use. //
-    ////////////////////////////////////////////////////////
-
-    /**
-     * Templater
-     * Available 'pug', 'jade' and 'handlebars'
-     * @type {String}
-     */
-    templater: 'pug',
-
-    /**
-     * Css-preprocessor
-     * Available 'scss', 'less' or 'stylus'
-     * .sass extension is supported if cssPreprocessor is 'scss'
-     * @type {String}
-     */
-    cssPreprocessor: 'scss',
-
-    /**
-     * What kind of size of images are you going to use.
-     * 96 — 1 dppx (regular)
-     * 192 — 2 dppx (retina)
-     * 288 — 3 dppx (nexus 5, for example)
-     * 384 - 4 dppx (nexus 6, for example)
-     * Example if using for all displays: usePpi: [96, 192, 288, 384]
-     * You can change with options not only on init or reinit,
-     * but at with time you have to create new directories
-     * and delete unused.
-     * @type {Array}
-     */
-    useImagesForDisplayWithDpi: [96],
-
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-
-    ////////////////////////////////////////////////////////
-    // You have to change with options after manually      //
-    // renaming static and img folder                     //
-    //                                                    //
-    // Do not rename these dirs before reinit             //
-    ////////////////////////////////////////////////////////
-
-    /**
-     * File structure settings
-     * @type {Object}
-     */
-    fs: {
-
-        /**
-         * Name of folder with static files, such *.css, *.js and so on
-         * 'static' by default
-         * @type {String}
-         */
-        staticFolderName: 'static',
-
-        /**
-         * Name of folder with images
-         * 'img' by default
-         * @type {String}
-         */
-        imagesFolderName: 'img',
-
-        /**
-         * Name of folder with modules
-         * 'modules' by default
-         * @type {String}
-         */
-        componentsFolderName: 'components'
-    }
+    "minifyHtml": false,
+    "generateStaticPath": true,
+    "buildPath": "../build/",
+    "useBuildVersioning": false,
+    "useArchiver": false,
+    "ulimit": 4096,
+    "templater": "pug",
+    "cssPreprocessor": "scss",
+    "useImagesForDisplayWithDpi": [
+        96
+    ],
+    "fs": {
+        "staticFolderName": "static",
+        "imagesFolderName": "img",
+        "componentsFolderName": "components"
+    },
+    "devPath": "./dev/"
 };

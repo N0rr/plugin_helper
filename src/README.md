@@ -7,12 +7,13 @@
 ```
 mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'https://gitlab.com/N0rr/tars/repository/archive.zip?ref=master' && npm run init
 
+
 ```
 
 **ИНТЕГРАЦИЯ В УЖЕ ФУНКЦИОНИРУЮЩИЙ ПРОЕКТ С ГИТОМ**
 
 ```javascript
-mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'https://github.com/N0rr/tars/archive/master.zip'
+mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'http://gitlab.ddemo.ru/a.kosyanenko/tars/repository/archive.zip?ref=custom'
 ```
 
 Создавать новый блок с помощью команды `tars add-component componentName -s`.

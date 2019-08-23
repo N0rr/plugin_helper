@@ -139,7 +139,7 @@ module.exports = {
         outputPath: tars.options.build.path
     },
 
-    devtool: generateSourceMaps ? sourceMapsType : null,
+    devtool: generateSourceMaps ? sourceMapsType : false,
 
     watch: tars.options.watch.isActive && !tars.config.js.webpack.useHMR,
 

@@ -9,7 +9,6 @@
     "svg4everybody": "^2.1.0",
     "babel-core": "^7.0.0-beta.3",
     "@babel/core": "^7.5.5",
-    "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.16.0",
     "@babel/preset-env": "^7.0.0-beta.4"
   },

@@ -13,7 +13,7 @@ mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 
 **ИНТЕГРАЦИЯ В УЖЕ ФУНКЦИОНИРУЮЩИЙ ПРОЕКТ С ГИТОМ**
 
 ```javascript
-mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'http://gitlab.ddemo.ru/a.kosyanenko/tars/repository/archive.zip?ref=custom'
+mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 'https://gitlab.com/N0rr/tars/repository/archive.zip?ref=master'
 ```
 
 Создавать новый блок с помощью команды `tars add-component componentName -s`.
@@ -28,7 +28,7 @@ mkdir src && cd src && tars init --exclude-html --exclude-css --silent --source 
 При выходе новой версии Тарса, уже существующий проект надо обновлять с помощью такой команды
 
 ```javascript
-tars update-project --exclude-html --exclude-css --source http://gitlab.ddemo.ru/a.kosyanenko/tars/repository/archive.zip?ref=custom
+tars update-project --exclude-html --exclude-css --source https://gitlab.com/N0rr/tars/repository/archive.zip?ref=master
 ```
 
 ## Плюшки

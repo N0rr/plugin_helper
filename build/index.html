@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Главная</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <link href="static/css/maing7ekcd.min.css" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script>
+        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <div class="slide-menu slide-menu slide-menu_desk js-menu header__menu scroll-to-container-js">
+                <div class="slide-menu__menu-btn js-menu-btn">
+                    <div class="slide-menu__bar slide-menu__bar-1">
+                    </div>
+                    <div class="slide-menu__bar slide-menu__bar-2">
+                    </div>
+                    <div class="slide-menu__bar slide-menu__bar-3">
+                    </div>
+                </div>
+                <div class="slide-menu__menu">
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-owl-carousel" data-link="e-owl-carousel">
+                        owl-carousel</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-ui-slider" data-link="e-ui-slider">
+                        ui-slider</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-inputmask" data-link="e-inputmask">
+                        inputmask</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-accordion" data-link="e-accordion">
+                        accordion</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-magnific-popup" data-link="e-magnific-popup">
+                        jquery-modal</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-select2" data-link="e-select2">
+                        select2</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-scroll" data-link="e-scroll">
+                        scrollto</a>
+                    <a class="scrollto scroll-link-js slide-menu__link" href="/e-tabs" data-link="e-tabs">
+                        tabs</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="b-plugins">
+        <div class="e-owl-carousel" id="#e-owl-carousel">
+            <h1 class="e-owl-carousel__title b-plugins__title">owl-carousel
+            </h1>
+            <div class="e-owl-carousel__source b-plugins__source">ссылка:
+                <a class="e-owl-carousel__link b-plugins__link" href="https://owlcarousel2.github.io/OwlCarousel2/">OwlCarousel2</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            include ../owl-slider/owl-slider include ../owl-slider__nav/owl-slider__nav include ../owl-slider__dots/owl-slider__dots
+                            +owl-slider({id:'owl-slider'}) +e.__slide.owl-slider__slide +e.IMG.__img( src='static//img/content/1.jpg')
+                            +e.__slide.owl-slider__slide +e.IMG.__img( src='static//img/content/2.jpg') +e.__slide.owl-slider__slide
+                            +e.IMG.__img( src='static//img/content/3.jpg') +owl-slider__nav</pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre>
+                            .e-owl-carousel { &__slider { display: flex; width: auto; height: auto; } &__slide { display: flex; align-items: center;
+                            justify-content: center; width: auto; height: 100%; } &__img { display: flex; width: auto; height:
+                            auto; } }
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre>
+                            import Component from 'helpers-js/Component'; import 'owl.carousel'; export default Component.create('e-owl-carousel', class
+                            { constructor($block) { this.$block = $block; this.init(); } init() { this.owlSlider = $("#owl-slider");
+                            window.addEventListener('load', e=> { this.checkOwl() }); window.addEventListener('resize', e=>
+                            { this.checkOwl() }); } checkOwl() { let owlSlider = this.owlSlider; if (window.innerWidth >
+                            768) { owlSlider.owlCarousel('destroy'); } else { this.initOwl(); } // $('.owl-slider__prev').click(function
+                            () { // owlSlider.trigger('next.owl.carousel'); // }); // $('.owl-slider__next').click(function
+                            () { // owlSlider.trigger('next.owl.carousel'); // }); } initOwl() { this.owlSlider.owlCarousel({
+                            margin: 0, pagination: false, pullDrag: true, mouseDrag: true, dots: true, nav: true, navText:
+                            ['
+                            <див class="owl-slider__prev" </див>', '
+                                <див class="owl-slider__next" </див>'], // navContainer: '#owl-slider__nav', responsive: { 0: { items: 1 }, 768: { items: 1 }
+                                    } }); } });
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="owl-slider owl-carousel e-owl-carousel__items" id="owl-slider">
+                            <div class="owl-slider__slide e-owl-carousel__slide">
+                                <img class="owl-slider__img" src="static//img/content/1.jpg" alt="" role="presentation" />
+                            </div>
+                            <div class="owl-slider__slide e-owl-carousel__slide">
+                                <img class="owl-slider__img" src="static//img/content/2.jpg" alt="" role="presentation" />
+                            </div>
+                            <div class="owl-slider__slide e-owl-carousel__slide">
+                                <img class="owl-slider__img" src="static//img/content/3.jpg" alt="" role="presentation" />
+                            </div>
+                        </div>
+                        <div class="owl-slider__nav">
+                            <div class="owl-slider__prev">
+                            </div>
+                            <div class="owl-slider__next">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-ui-slider">
+            <h1 class="e-ui-slider__title b-plugins__title">ui-slider
+            </h1>
+            <div class="e-ui-slider__source b-plugins__source">ссылка:
+                <a class="e-ui-slider__link b-plugins__link" href="https://jqueryui.com/slider/">ui-slider</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            +e.LABEL.label.ui-slide__label | Количество пар носков +ui-slide({value: '', typeValue: 'шт', maxRange: 30}).ui-slide__item-values
+                            +e.SPAN шт +e.LABEL.label.ui-slide__label | Количество штанов +ui-slide({value: '', typeValue:
+                            'шт', maxRange: 50}).ui-slide__item-values +e.SPAN шт +e.LABEL.label.ui-slide__label | цена сапог
+                            +ui-slide({value: '', typeValue: 'руб', maxRange: 100}).ui-slide__item-values +e.SPAN руб +e.LABEL.label.ui-slide__label
+                            | Подбор носков по цене +ui-slide({value: '40', typeValue: 'руб', maxRange: 30, range2: true,
+                            valueRange2: '240'}).js-ui-socks-slider.ui-slide--active +e.SPAN руб
+                        </pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre>
+                            .ui-slide { display: flex; flex-direction: row; flex-wrap: wrap; width: 90%; padding: 0 rem(20); &__label { display: block;
+                            padding: rem(20); font-size: rem(20); } &__slider { width: rem(160); height: rem(22); margin-right:
+                            rem(30); background: rgb(161, 161, 161); } & .ui-slider-handle { top: rem(-2); width: rem(24);
+                            height: rem(24); border: 2px solid #333; border-radius: 50%; background: rgb(49, 126, 177); cursor:
+                            pointer; &:hover { background: rgb(136, 219, 59); } } & .ui-slider-range-min { height: rem(20);
+                            background: rgb(157, 220, 231); } &__input-block { margin-bottom: rem(10); margin-left: auto;
+                            } &__input { width: rem(50); height: rem(20); padding: rem(5); margin-right: rem(20); font-size:
+                            rem(15); font-weight: bold; color: #000; border: none; border-radius: rem(2); background: #fff;
+                            } &--active { .ui-slider-handle { border: none; background: rgb(136, 219, 59); } .ui-slider-range-min
+                            { background: rgb(219, 219, 219); } } }
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre class="e-ui-slider__js">
+                            import Component from 'helpers-js/Component'; require('jquery-ui/ui/widgets/slider'); export default Component.create('ui-slide',
+                            class { constructor($block) { this.$block = $block; this.init(); } init() { let uiSliderBlock
+                            = document.querySelector('.js-ui-socks-slider'); let $uiSlider1 = $(uiSliderBlock).find('.ui-slide__slider');
+                            let $uiSliderInput = $(uiSliderBlock).find('.ui-slide__input'); let $uiInput1Val = $(uiSliderBlock).find('.ui-slide__input-range').attr('value');
+                            let $uiInput2Val = $(uiSliderBlock).find('.ui-slide__input-range2').attr('value'); let uiSliders
+                            = document.querySelectorAll('.ui-slide__item-values > .ui-slide__slider'); $uiSliderInput.each(function
+                            (i, e) { $uiSliderInput.on('input', () => { $uiSlider1.slider('values', i, $(e).val()); if (e.value
+                            > 0) { $(uiSliderBlock).addClass('ui-slide--active'); } else { $(uiSliderBlock).removeClass('ui-slide--active');
+                            } }); }); $uiSlider1.slider({ // двойной range-slider range: true, min: 0, max: 1230, values:
+                            [$uiInput1Val, $uiInput2Val], slide(event, ui) { $($uiSliderInput[0]).val(ui.values[0]); $($uiSliderInput[1]).val(ui.values[1]);
+                            if (ui.values[0] || ui.values[1] > 0) { $(uiSliderBlock).addClass('ui-slide--active'); } else
+                            { $(uiSliderBlock).removeClass('ui-slide--active'); } } }); uiSliders.forEach((e, i) => { //
+                            Группа range-slider let that = this; let $rangeBlock = $(e).closest('.ui-slide__item-values');
+                            let $rangeInput = $rangeBlock.find('.ui-slide__input'); let rangeInput = document.querySelectorAll('.ui-slide__input');
+                            let $maxRange = $rangeBlock.find('.ui-slide__input').attr('data-max-range'); $rangeInput.on('input',
+                            () => { $(e).slider('value', $rangeInput.val()); this.toggleActive(e, rangeInput[i]); }); $(e).slider({
+                            range: 'min', max: $maxRange, slide(event, ui) { $rangeInput.val(ui.value); that.toggleActive(e,
+                            ui); } }); }); } toggleActive(e, input) { if (input.value > 0) { $(e).addClass('ui-slide--active');
+                            } else { $(e).removeClass('ui-slide--active'); } } });
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <label class="owl-slider__label ui-slide__label">Количество пар носков
+                        </label>
+                        <div class="ui-slide ui-slide__item-values">
+                            <div class="ui-slide__slider">
+                            </div>
+                            <div class="ui-slide__input-block">
+                                <input class="ui-slide__input ui-slide__input-range" type="text" value="" placeholder="0" data-type-value="шт"
+                                data-max-range="30" max="30" />
+                                <span>шт</span>
+                            </div>
+                        </div>
+                        <label class="owl-slider__label ui-slide__label">Количество штанов
+                        </label>
+                        <div class="ui-slide ui-slide__item-values">
+                            <div class="ui-slide__slider">
+                            </div>
+                            <div class="ui-slide__input-block">
+                                <input class="ui-slide__input ui-slide__input-range" type="text" value="" placeholder="0" data-type-value="шт"
+                                data-max-range="50" max="50" />
+                                <span>шт</span>
+                            </div>
+                        </div>
+                        <label class="owl-slider__label ui-slide__label">цена сапог
+                        </label>
+                        <div class="ui-slide ui-slide__item-values">
+                            <div class="ui-slide__slider">
+                            </div>
+                            <div class="ui-slide__input-block">
+                                <input class="ui-slide__input ui-slide__input-range" type="text" value="" placeholder="0" data-type-value="руб"
+                                data-max-range="100" max="100" />
+                                <span>руб</span>
+                            </div>
+                        </div>
+                        <label class="owl-slider__label ui-slide__label">Подбор носков по цене
+                        </label>
+                        <div class="ui-slide js-ui-socks-slider">
+                            <div class="ui-slide__slider">
+                            </div>
+                            <div class="ui-slide__input-block">
+                                <input class="ui-slide__input ui-slide__input-range" type="text" value="" placeholder="0" data-type-value="руб"
+                                />
+                                <span>руб</span>
+                            </div>
+                            <div class="ui-slide__input-block">
+                                <input class="ui-slide__input ui-slide__input-range2" type="text" placeholder="0" value="" data-type-value="руб"
+                                />
+                                <span>руб</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-inputmask">
+            <h1 class="e-inputmask__title b-plugins__title">inputmask
+            </h1>
+            <div class="e-inputmask__source b-plugins__source">ссылка:
+                <a class="e-inputmask__link b-plugins__link" href="https://romua1d.ru/korrektnaya-maska-nomera-telefona-inputmask/">inputmask</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            +e.FORM.__form +input({theme: 'default', name: 'email', class: 'input-email-js'}) +input({theme: 'default', name: 'phone',
+                            class: 'input-phone-js'}) +e.INPUT.__submit(type='submit' value='go go')
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre>
+                            .input { &_default { display: flex; flex-direction: column; padding: rem(20); & .input__input { border: none; border-radius:
+                            rem(5); padding: rem(10); margin-top: rem(20); color: #000; font-size: rem(17); } & .input__input.invalid
+                            { border: rem(2) solid rgb(226, 137, 137); } & .input__label { font-size: rem(17); } & .input__error-msg
+                            { margin-top: rem(10); font-size: rem(14); color: rgb(226, 137, 137); } } &__input-error-msg
+                            { font-style: rem(12); color: #fff; background: rgb(116, 65, 182); } &__submit { display: block;
+                            padding: rem(20); margin: auto; color: $color-1; font-size: rem(20); &:hover { border: rem(2)
+                            solid $color-1; } } }
+
+
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre class="e-input__js">
+                            import Component from 'helpers-js/Component'; import Inputmask from 'inputmask'; import 'jquery-validation'; export default
+                            Component.create('input', class { constructor($block) { this.$block = $block; this.init(); }
+                            init() { let form = document.querySelector('.e-inputmask__form'); let inputPhone = document.querySelector('.input-phone-js');
+                            let inputMaskPhone = new Inputmask({ mask: "+7(999)999-99-99" // regex: "[0-9]*", // isComplete:
+                            function(buffer, opts) { // return new RegExp(opts.regex).test(buffer.join('')); // } }); inputMaskPhone.mask(inputPhone);
+                            // let inputMaskEmail = new Inputmask({ // // mask: '*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]'
+                            // )}; inputMaskEmail(inputEmail); $(form).validate({ errorClass: 'invalid', validClass: 'valid',
+                            ignoreTitle: true, errorElement: 'span', errorPlacement: function(error, element) { let errorBlock
+                            = document.querySelector('.' + $(element).attr('data-error-msg')); error.appendTo(errorBlock);
+                            }, highlight: function(element, errorClass, validClass) { let errorBlock = document.querySelector('.'
+                            + $(element).attr('data-error-msg')); $(element).addClass(errorClass).removeClass(validClass);
+                            $(errorBlock).addClass(errorClass); }, unhighlight: function(element, errorClass, validClass)
+                            { let errorBlock = document.querySelector('.' + $(element).attr('data-error-msg')); $(element).removeClass(errorClass).addClass(validClass);
+                            $(errorBlock).removeClass(errorClass); }, rules: { email: { required: true, email: true }, phone:
+                            { required: true, phone: true } }, messages: { email: { required: 'необходимо ввести адрес почты'
+                            }, phone: { required: 'ну оставь номер, че как не свой ?' } } }); $.validator.addMethod("email",
+                            function(value, element) { return this.optional(element) || /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(value);
+                            }, 'Пожайлуста введите коректный email'); $.validator.addMethod('phone', function (value, element)
+                            { return this.optional(element) || /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/.test(value); }, 'Введите корректный
+                            номер телефона'); } validateEmail(email) { var re = /^(([^
+                            <>()\[\]\\.,;:\s@"]+(\.[^
+                                <>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                    return re.test(email); } });
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <form class="owl-slider__form e-inputmask__form">
+                            <div class="input input input_default">
+                                <label class="input__label" for="email">email
+                                </label>
+                                <input class="input__input input-email-js input__error" type="text" name="email"
+                                id="email" data-error-msg="input-email-js-error" required="required" />
+                                <div class="input__error-msg input-email-js-error">
+                                </div>
+                            </div>
+                            <div class="input input input_default">
+                                <label class="input__label" for="phone">phone
+                                </label>
+                                <input class="input__input input-phone-js input__error" type="text" name="phone"
+                                id="phone" data-error-msg="input-phone-js-error" required="required" />
+                                <div class="input__error-msg input-phone-js-error">
+                                </div>
+                            </div>
+                            <input class="owl-slider__submit input__submit" type="submit" value="go go" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-accordion">
+            <h1 class="e-accordion__title b-plugins__title">Accordion
+            </h1>
+            <div class="e-accordion__source b-plugins__source">ссылка:
+                <a class="e-accordion__link b-plugins__link" href="https://jqueryui.com/accordion/">Accordion</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            include ../accordion-pl/accordion-pl +accordion-pl
+                        </pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre>
+                            .accordion-pl { &__title { font-size: rem(14) !important; } &__block { font-size: rem(14) !important; } }
+
+
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre>
+                            import Component from 'helpers-js/Component'; require('jquery-ui/ui/widgets/accordion'); export default Component.create('accordion-pl',
+                            class { constructor($block) { this.$block = $block; this.init(); } init() { $(".accordion-pl").accordion({
+                            collapsible: true, icons: false, heightStyle: "fill" }); } });
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="owl-slider__block e-accordion__block">
+                            <div class="accordion-pl">
+                                <h3 class="accordion-pl__title">title
+                                </h3>
+                                <div class="accordion-pl__block">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, molestias. Dolorum atque explicabo quibusdam similique eaque
+                                    quod alias incidunt natus iste beatae? Numquam blanditiis aliquid repellendus asperiores,
+                                    eligendi aspernatur possimus.
+                                </div>
+                                <h3 class="accordion-pl__title">title
+                                </h3>
+                                <div class="accordion-pl__block">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, molestias. Dolorum atque explicabo quibusdam similique eaque
+                                    quod alias incidunt natus iste beatae? Numquam blanditiis aliquid repellendus asperiores,
+                                    eligendi aspernatur possimus.
+                                </div>
+                                <h3 class="accordion-pl__title">title
+                                </h3>
+                                <div class="accordion-pl__block">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, molestias. Dolorum atque explicabo quibusdam similique eaque
+                                    quod alias incidunt natus iste beatae? Numquam blanditiis aliquid repellendus asperiores,
+                                    eligendi aspernatur possimus.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-magnific-popup">
+            <h1 class="e-magnific-popup__title b-plugins__title">jquery modal
+            </h1>
+            <div class="e-magnific-popup__source b-plugins__source">ссылка:
+                <a class="e-magnific-popup__link b-plugins__link" href="https://jquerymodal.com/">jquery modal</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            +popup({id: 'def-popup-js', btnText: 'Открыть'}) +e.__text | Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+                            quisquam minima cupiditate maiores quae voluptatum, alias sit doloribus aperiam ipsum veritatis
+                            voluptates ducimus nemo dolores non, ab porro ad et?</pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre></pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="popup">
+                            <a class="popup__open-popup" rel="modal:open" href="#def-popup-js">Открыть</a>
+                            <div class="popup__container def-popup-js modal" id="def-popup-js">
+                                <div class="popup__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quisquam minima cupiditate maiores quae voluptatum, alias
+                                    sit doloribus aperiam ipsum veritatis voluptates ducimus nemo dolores non, ab porro ad
+                                    et?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-select2">
+            <h1 class="e-select2__title b-plugins__title">select2
+            </h1>
+            <div class="e-select2__source b-plugins__source">ссылка:
+                <a class="e-select2__link b-plugins__link" href="https://select2.github.io/">select2</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            +select({ options: ['Один', 'Два', 'Три'] }).e-select2__select-number
+                        </pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre>
+                            .select { width: rem(337); height: rem(54); &.select__required .select2-container--default .select2-selection--single .select2-selection__placeholder{
+                            color: rgba(255, 25, 35, 0.6); } .select2-container .select2-selection--single { height: rem(54);
+                            border: none; outline: none; } .select2-container--default .select2-selection--single .select2-selection__rendered
+                            { padding: 0 rem(48) 0 rem(23); font-size: rem(18); font-weight: normal; line-height: rem(54);
+                            } .select2-container--default .select2-selection--single .select2-selection__arrow { width: rem(54);
+                            height: rem(54); b { border-width: rem(8) rem(6) 0 rem(6); border-color: $color-1 transparent
+                            transparent transparent; } } .select2-container--default.select2-container--open .select2-selection--single
+                            .select2-selection__arrow b { border-width: 0 rem(6) rem(8) rem(6); border-color: transparent
+                            transparent $color-1 transparent; } .select2-container--default .select2-selection--single .select2-selection__placeholder
+                            { color: $color-1; } &.select__required .select2-container--default .select2-selection--single
+                            .select2-selection__placeholder{ color: rgba(255, 25, 35, 0.6); } } .select2-dropdown { border:
+                            none; } .select2-results__option { padding-right: rem(23); padding-left: rem(23); font-size:
+                            rem(18); font-weight: normal; color: $color-1; } .select2-container--default .select2-results__option--highlighted
+                            { padding-right: rem(23); padding-left: rem(23); font-size: rem(18); font-weight: normal; color:
+                            $color-1; }
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre>
+                            import 'select2'; $('.e-select2__select-number > .select__select').select2({ minimumResultsForSearch: -1, // Скрыть поиск
+                            width: '100%', placeholder: 'Выберите что нибудь уже' // tags: true // запоминать выбор });
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="select e-select2__select-number">
+                            <select class="select__select">
+                                <option class="select__option">
+                                </option>
+                                <option class="select__option">Один
+                                </option>
+                                <option class="select__option">Два
+                                </option>
+                                <option class="select__option">Три
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-scroll">
+            <h1 class="e-scroll__title b-plugins__title">scrollto
+            </h1>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            include ../scrollto/scrollto +e.scroll-block.scrollto-container-js +scrollto({href: 'e-scroll'}).slide-menu__link | scrollto
+                            +scrollto({href: 'e-owl-carousel'}).slide-menu__link | owl-carousel +scrollto({href: 'e-ui-slider'}).slide-menu__link
+                            | ui-slider +scrollto({href: 'e-inputmask'}).slide-menu__link | inputmask +scrollto({href: 'e-accordion'}).slide-menu__link
+                            | accordion +scrollto({href: 'e-magnific-popup'}).slide-menu__link | jquery-modal +scrollto({href:
+                            'e-select2'}).slide-menu__link | select2
+                        </pre>
+                    </div>
+                    <div class="helper-item__scss">
+                        <h2 class="owl-slider__h2 helper-item__title">scss
+                        </h2>
+                        <pre></pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre>
+                            import Component from 'helpers-js/Component'; import { animateScroll } from 'helpers-js/animations'; export default Component.create('e-scroll',
+                            class { constructor($block) { this.$block = $block; this.init(); } init() { const scrollLinks
+                            = document.querySelector('.scrollto-container-js'); scrollLinks.addEventListener('click', e =>
+                            { this.goToBlock(e); }); } goToBlock(e) { e.preventDefault(); this.scrollLink = e.target; if
+                            (this.scrollLink.classList.contains('scroll-link-js')) { this.scrolledBlockClass = this.scrollLink.getAttribute('data-link');
+                            this.scrolledBlock = document.querySelector('.' + this.scrolledBlockClass); animateScroll({ element:
+                            this.scrolledBlock }); } } });
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="owl-slider__scroll-block scrollto-container-js">
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-scroll" data-link="e-scroll">
+                                scrollto</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-owl-carousel" data-link="e-owl-carousel">
+                                owl-carousel</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-ui-slider" data-link="e-ui-slider">
+                                ui-slider</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-inputmask" data-link="e-inputmask">
+                                inputmask</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-accordion" data-link="e-accordion">
+                                accordion</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-magnific-popup"
+                            data-link="e-magnific-popup">
+                                jquery-modal</a>
+                            <a class="scrollto scroll-link-js slide-menu__link" href="/e-select2" data-link="e-select2">
+                                select2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="e-tabs">
+            <h1 class="e-tabs__title b-plugins__title">tabs
+            </h1>
+            <div class="e-tabs__source b-plugins__source">ссылка:
+                <a class="e-tabs__link b-plugins__link" href="https://jqueryui.com/tabs/#default">tabs</a>
+            </div>
+            <div class="helper-item">
+                <div class="owl-slider owl-carousel helper-item__container" id="helper-slider-js">
+                    <div class="helper-item__pug">
+                        <h2 class="owl-slider__h2 helper-item__title">Pug
+                        </h2>
+                        <pre>
+                            include ../tabs/tabs include ../tabs/tab/tab +tabs({id: 'tabs1'}) +tab({title:'первый', href:'tab1'}) +tab({title:'второй',
+                            href:'tab2'}) +tab({title:'третий', href:'tab3'}) +e.__block(id='tab1') |Lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. |Eaque, molestias minima temporibus labore quibusdam, |repudiandae
+                            dolores error |incidunt accusamus dicta perferendis excepturi? |Magnam beatae est explicabo,
+                            odio at molestiae id! +e.__block(id='tab2') |Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. |Eaque, molestias minima temporibus labore quibusdam, |repudiandae dolores error |incidunt
+                            accusamus dicta perferendis excepturi? |Magnam beatae est explicabo, odio at molestiae id! |Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. |Eaque, molestias minima temporibus labore
+                            quibusdam, |repudiandae dolores error |incidunt accusamus dicta perferendis excepturi? |Magnam
+                            beatae est explicabo, odio at molestiae id! +e.__block(id='tab3') |Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. |Eaque, molestias minima temporibus labore quibusdam, |repudiandae
+                            dolores error |incidunt accusamus dicta perferendis excepturi? |Magnam beatae est explicabo,
+                            odio at molestiae id! |Lorem ipsum dolor sit amet consectetur adipisicing elit. |Eaque, molestias
+                            minima temporibus labore quibusdam, |repudiandae dolores error |incidunt accusamus dicta perferendis
+                            excepturi? |Magnam beatae est explicabo, odio at molestiae id! |incidunt accusamus dicta perferendis
+                            excepturi? |Magnam beatae est explicabo, odio at molestiae id! |Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. |Eaque, molestias minima temporibus labore quibusdam, |repudiandae dolores
+                            error |incidunt accusamus dicta perferendis excepturi? |Magnam beatae est explicabo, odio at
+                            molestiae id!
+                        </pre>
+                    </div>
+                    <div class="helper-item__js">
+                        <h2 class="owl-slider__h2 helper-item__title">js
+                        </h2>
+                        <pre>
+                            import Component from 'helpers-js/Component'; require('jquery-ui/ui/widgets/tabs'); export default Component.create('e-tabs',
+                            class { constructor($block) { this.$block = $block; this.init(); } init() { let tabs1 = document.getElementById('tabs1');
+                            $(tabs1).tabs(); } });
+
+                        </pre>
+                    </div>
+                    <div class="helper-item__result">
+                        <h2 class="owl-slider__h2 helper-item__title">result
+                        </h2>
+                        <div class="tabs" id="tabs1">
+                            <ul>
+                                <li class="tab">
+                                    <a class="tab__title" href="#tab1">первый</a>
+                                </li>
+                                <li class="tab">
+                                    <a class="tab__title" href="#tab2">второй</a>
+                                </li>
+                                <li class="tab">
+                                    <a class="tab__title" href="#tab3">третий</a>
+                                </li>
+                            </ul>
+                            <div class="tabs__block" id="tab1">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, molestias minima temporibus labore quibusdam, repudiandae
+                                dolores error incidunt accusamus dicta perferendis excepturi? Magnam beatae est explicabo,
+                                odio at molestiae id!
+                            </div>
+                            <div class="tabs__block" id="tab2">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, molestias minima temporibus labore quibusdam, repudiandae
+                                dolores error incidunt accusamus dicta perferendis excepturi? Magnam beatae est explicabo,
+                                odio at molestiae id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, molestias
+                                minima temporibus labore quibusdam, repudiandae dolores error incidunt accusamus dicta perferendis
+                                excepturi? Magnam beatae est explicabo, odio at molestiae id!
+                            </div>
+                            <div class="tabs__block" id="tab3">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, molestias minima temporibus labore quibusdam, repudiandae
+                                dolores error incidunt accusamus dicta perferendis excepturi? Magnam beatae est explicabo,
+                                odio at molestiae id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, molestias
+                                minima temporibus labore quibusdam, repudiandae dolores error incidunt accusamus dicta perferendis
+                                excepturi? Magnam beatae est explicabo, odio at molestiae id! incidunt accusamus dicta perferendis
+                                excepturi? Magnam beatae est explicabo, odio at molestiae id! Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Eaque, molestias minima temporibus labore quibusdam, repudiandae
+                                dolores error incidunt accusamus dicta perferendis excepturi? Magnam beatae est explicabo,
+                                odio at molestiae id!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+    <script src="static/js/maing7ekcd.min.js">
+    </script>
+</body>
+
+</html>

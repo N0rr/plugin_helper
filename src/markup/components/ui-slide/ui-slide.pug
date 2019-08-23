@@ -1,0 +1,14 @@
+mixin ui-slide(data)
+    +b.ui-slide()&attributes(attributes)   
+        +e.__slider(class=data.sliderClass)
+        
+        +e.__input-block
+            +e.INPUT.__input.__input-range(type=data.type || 'text' name=data.name value=data.value, placeholder=0 data-type-value=data.typeValue, data-max-range=data.maxRange, max=data.maxRange)
+            
+            block
+            
+        if(data.range2 == true)
+            +e.__input-block
+                +e.INPUT.__input.__input-range2(type=data.type || 'text' name=data.name placeholder=0 value=data.valueRange2, data-type-value=data.typeValue, max=data.maxRange)
+                
+                block

@@ -1,0 +1,44 @@
+.helper-item {
+    margin-top: rem(30);
+
+    font-size: rem(12);
+    color: #fff;
+
+    background: rgb(49, 47, 58);
+
+    @include above($tablet) {
+        margin-bottom: rem(40);
+        
+        &__container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @include above($md-desktop) {        
+
+        &__container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        &__pug,
+        &__scss,
+        &__js,
+        &__result {
+            width: 50%;
+
+            border: rem(1) solid $color-1;
+        }
+    }
+
+    &__title {
+        padding: rem(20);
+
+        font-size: rem(20);
+        text-align: left;
+
+        background: #423677;
+    }
+}

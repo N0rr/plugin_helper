@@ -1,0 +1,18 @@
+mixin swiper-slider(data)
+    +b.swiper-slider()&attributes(attributes)
+        +e.container.swiper-container.swiper-slider-1
+            +e.wrapper.swiper-wrapper
+                +e.slide.swiper-slide
+                    | слайд 1
+                +e.slide.swiper-slide
+                    | слайд 2
+
+            +e.pagination.swiper-pagination
+
+            +e.button-prev.swiper-button-prev
+                | прев
+            +e.button-next.swiper-button-next
+                | next
+
+            +e.scrollbar.swiper-scrollbar
+        block

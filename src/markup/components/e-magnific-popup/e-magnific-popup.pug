@@ -1,0 +1,36 @@
+include ../popup/popup
+
+mixin e-magnific-popup(data)
+    +b.e-magnific-popup()&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | jquery modal
+
+        +e.__source.b-plugins__source
+            | ссылка:
+            +e.A.__link.b-plugins__link(href='https://jquerymodal.com/')
+                | jquery modal
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE.    
+                    +popup({id: 'def-popup-js', btnText: 'Открыть'})
+                        +e.__text 
+                            | Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Similique quisquam minima cupiditate maiores quae voluptatum, 
+                            alias sit doloribus aperiam ipsum veritatis voluptates ducimus 
+                            nemo dolores non, ab porro ad et?                
+            .helper-item__scss
+                +e.H2.h2.helper-item__title
+                    | scss
+                +e.PRE. 
+                    
+                   
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+
+                +popup({id: 'def-popup-js', btnText: 'Открыть'})
+                    +e.__text 
+                        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quisquam minima cupiditate maiores quae voluptatum, alias sit doloribus aperiam ipsum veritatis voluptates ducimus nemo dolores non, ab porro ad et?

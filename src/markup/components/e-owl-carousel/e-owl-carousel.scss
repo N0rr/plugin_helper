@@ -1,0 +1,39 @@
+.e-owl-carousel {
+    @include above($tablet) {
+        &__slide {
+            height: rem(500);
+            padding: rem(20);
+        }
+
+        &__items {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+    &__slider {
+        display: flex;
+        width: auto;
+        height: auto;        
+    }
+
+    &__slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+        width: auto;
+        height: 100%;
+
+        @include above($tablet) {        
+            height: rem(500);
+            padding: rem(20);
+        }
+    }
+
+    &__img {
+        display: flex; 
+        width: auto;        
+        height: auto;       
+    }
+}

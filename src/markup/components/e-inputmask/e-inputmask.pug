@@ -1,0 +1,107 @@
+include ../input/input
+include ../e-input__js/e-input__js
+
+
+
+mixin e-inputmask(data)
+    +b.e-inputmask()&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | inputmask
+
+        +e.__source.b-plugins__source
+            | ссылка:
+            +e.A.__link.b-plugins__link(href='https://romua1d.ru/korrektnaya-maska-nomera-telefona-inputmask/')
+                | inputmask
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE.
+                    +e.FORM.__form
+                        +input({theme: 'default', name: 'email', class: 'input-email-js'})
+
+                        +input({theme: 'default', name: 'phone', class: 'input-phone-js'})
+
+                        +e.INPUT.__submit(type='submit' value='go go')
+                    
+                
+            .helper-item__scss
+                +e.H2.h2.helper-item__title
+                    | scss
+                +e.PRE.
+                    .input {
+                        &_default {
+                            display: flex;
+                            flex-direction: column;
+                            padding: rem(20);
+
+                            & .input__input {
+                                border: none;
+                                border-radius: rem(5);
+                                padding: rem(10);
+                                margin-top: rem(20);
+
+                                color: #000;
+                                font-size: rem(17);            
+                            }
+
+                            & .input__input.invalid {
+                                border: rem(2) solid rgb(226, 137, 137);
+                            }
+
+                            & .input__label {
+                                font-size: rem(17);
+                            }
+
+                            & .input__error-msg {
+                                margin-top: rem(10);
+
+                                font-size: rem(14);
+                                color: rgb(226, 137, 137);
+                            }
+                        }
+
+                        &__input-error-msg {
+                            font-style: rem(12);
+                            color: #fff;
+
+                            background: rgb(116, 65, 182);
+                        }
+
+                    &__submit {
+                            display: block;
+                            padding: rem(20);
+                            margin: auto;
+
+                            color: $color-1;
+                            font-size: rem(20);
+
+                            &:hover {
+                                border: rem(2) solid $color-1;
+                            }
+                            
+                        }
+                    }
+
+                    
+
+
+            .helper-item__js
+                +e.H2.h2.helper-item__title
+                    | js
+                +e-input__js
+                
+
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+
+                +e.FORM.__form.e-inputmask__form
+                    +input({theme: 'default', name: 'email', class: 'input-email-js'})
+
+                    +input({theme: 'default', name: 'phone', class: 'input-phone-js'})
+
+                    +e.INPUT.__submit.input__submit(type='submit' value='go go')                
+                
+        

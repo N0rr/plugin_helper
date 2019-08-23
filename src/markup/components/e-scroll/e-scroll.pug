@@ -1,0 +1,106 @@
+include ../scrollto/scrollto
+
+
+mixin e-scroll(data)
+    +b.e-scroll()&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | scrollto        
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE.    
+                    include ../scrollto/scrollto
+
+                    +e.scroll-block.scrollto-container-js
+                    +scrollto({href: 'e-scroll'}).slide-menu__link 
+                        | scrollto
+
+                    +scrollto({href: 'e-owl-carousel'}).slide-menu__link 
+                        | owl-carousel
+
+                    +scrollto({href: 'e-ui-slider'}).slide-menu__link 
+                        | ui-slider
+
+                    +scrollto({href: 'e-inputmask'}).slide-menu__link 
+                        | inputmask
+
+                    +scrollto({href: 'e-accordion'}).slide-menu__link 
+                        | accordion
+
+                    +scrollto({href: 'e-magnific-popup'}).slide-menu__link 
+                        | jquery-modal
+
+                    +scrollto({href: 'e-select2'}).slide-menu__link 
+                        | select2
+
+            .helper-item__scss
+                +e.H2.h2.helper-item__title
+                    | scss
+                +e.PRE. 
+
+            .helper-item__js
+                +e.H2.h2.helper-item__title
+                    | js
+
+                +e.PRE. 
+                    import Component from 'helpers-js/Component';
+                    import { animateScroll } from 'helpers-js/animations';
+
+                    export default Component.create('e-scroll', class {
+                        constructor($block) {
+                            this.$block = $block;
+                            this.init();
+                        }
+
+                        init() {
+                            const scrollLinks = document.querySelector('.scrollto-container-js');
+
+                            scrollLinks.addEventListener('click', e => {
+                                this.goToBlock(e);
+                            });
+
+                        }
+
+                        goToBlock(e) {
+                            e.preventDefault();
+                            this.scrollLink = e.target;
+
+                            if (this.scrollLink.classList.contains('scroll-link-js')) {
+                                this.scrolledBlockClass = this.scrollLink.getAttribute('data-link');
+
+                                this.scrolledBlock = document.querySelector('.' + this.scrolledBlockClass);
+
+                                animateScroll({
+                                    element: this.scrolledBlock
+                                });
+                            }
+                        }
+                    });                    
+                   
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+
+                +e.scroll-block.scrollto-container-js
+                    +scrollto({href: 'e-scroll'}).slide-menu__link 
+                        | scrollto
+
+                    +scrollto({href: 'e-owl-carousel'}).slide-menu__link 
+                        | owl-carousel
+
+                    +scrollto({href: 'e-ui-slider'}).slide-menu__link 
+                        | ui-slider
+
+                    +scrollto({href: 'e-inputmask'}).slide-menu__link 
+                        | inputmask
+
+                    +scrollto({href: 'e-accordion'}).slide-menu__link 
+                        | accordion
+
+                    +scrollto({href: 'e-magnific-popup'}).slide-menu__link 
+                        | jquery-modal
+
+                    +scrollto({href: 'e-select2'}).slide-menu__link 
+                        | select2

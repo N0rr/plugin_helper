@@ -1,0 +1,10 @@
+include ../swiper-menu/swiper-menu
+
+
+mixin e-swiper-menu(data)
+    +b.e-swiper-menu()&attributes(attributes)
+        +swiper-menu()
+                +e.__menu-list
+                    | Плагины
+                    +e.A.__menu-item.scroll-link-js(href="#e-owl-carousel" data-link="e-owl-carousel")
+                        | owl-carousel

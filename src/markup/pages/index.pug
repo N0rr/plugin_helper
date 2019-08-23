@@ -1,7 +1,10 @@
 extends ../layouts/default
+include ../components/b-plugins/b-plugins
+
 
 block vars
     -pageSettings.title = 'Главная';
 
 block content
-    // Контент здесь
+    +b-plugins
+   

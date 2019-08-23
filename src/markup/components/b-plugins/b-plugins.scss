@@ -1,0 +1,41 @@
+.b-plugins {
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(0,0,0, 0.8);
+
+    @include above($tablet) {
+        &__title {
+            margin-top: rem(40);
+        }
+    }
+
+    &__title {
+        padding: rem(40);
+
+        color: $color-2;
+        text-align: center;
+
+        background: $color-1;
+    }
+
+    &__source {
+        margin-bottom: rem(20);
+
+        color:$color-2;
+
+        text-align: center;
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        margin-top: rem(10);        
+
+        color: rgb(146, 97, 156);
+
+        text-align: center;
+        
+        
+    }
+}

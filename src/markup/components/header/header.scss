@@ -1,3 +1,21 @@
 .header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
 
+    height: rem(300);
+
+    @include above($tablet) {
+        width: 100%;
+        height: auto;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        height: 100%;
+    }
 }

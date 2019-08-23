@@ -1,0 +1,152 @@
+include ../helper-item/helper-item
+include ../owl-slider/owl-slider
+include ../owl-slider__nav/owl-slider__nav
+include ../owl-slider__dots/owl-slider__dots
+
+
+mixin e-owl-carousel(data)
+    +b.e-owl-carousel(id="#e-owl-carousel")&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | owl-carousel 
+        +e.__source.b-plugins__source
+            | ссылка:
+            +e.A.__link.b-plugins__link(href='https://owlcarousel2.github.io/OwlCarousel2/')
+                | OwlCarousel2
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE
+                    |include ../owl-slider/owl-slider
+                    |include ../owl-slider__nav/owl-slider__nav
+                    |include ../owl-slider__dots/owl-slider__dots
+                    |
+                    |+owl-slider({id:'owl-slider'})
+                    |   +e.__slide.owl-slider__slide
+                    |      +e.IMG.__img(
+                    |    src='%=static=%/img/content/1.jpg')
+                    |
+                    |   +e.__slide.owl-slider__slide
+                    |      +e.IMG.__img(
+                    |    src='%=static=%/img/content/2.jpg')
+                    |
+                    |   +e.__slide.owl-slider__slide
+                    |      +e.IMG.__img(
+                    |    src='%=static=%/img/content/3.jpg')
+                    |
+                    |   +owl-slider__nav                
+                
+            .helper-item__scss
+                +e.H2.h2.helper-item__title
+                    | scss
+                +e.PRE.                    
+                        .e-owl-carousel {    
+
+                            &__slider {
+                                display: flex;
+                                width: auto;
+                                height: auto;        
+                            }
+
+                            &__slide {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;        
+                                width: auto;
+                                height: 100%;
+                            }
+
+                            &__img {
+                                display: flex; 
+                                width: auto;        
+                                height: auto;       
+                            }
+                        }
+                    
+
+            .helper-item__js
+                +e.H2.h2.helper-item__title
+                    | js
+
+                +e.PRE.
+                    import Component from 'helpers-js/Component';
+                    import 'owl.carousel';
+
+                    export default Component.create('e-owl-carousel', class {
+                        constructor($block) {
+                            this.$block = $block;
+                            this.init();
+                        }
+
+                        init() {
+                            this.owlSlider = $("#owl-slider");        
+
+                            window.addEventListener('load', e=> {
+                                this.checkOwl()
+                            });
+                            window.addEventListener('resize', e=> {
+                                this.checkOwl()
+                            });
+                        }
+
+                        checkOwl() {
+                            let owlSlider = this.owlSlider;
+
+                            if (window.innerWidth > 768) {
+                                owlSlider.owlCarousel('destroy');
+                            } else {
+                                this.initOwl();
+                            }
+                            
+                        
+                            // $('.owl-slider__prev').click(function () {
+                            //    owlSlider.trigger('next.owl.carousel');
+                            // });        
+
+                            // $('.owl-slider__next').click(function () {
+                            //     owlSlider.trigger('next.owl.carousel');
+                            // });  
+                        }
+
+                        initOwl() {
+                            this.owlSlider.owlCarousel({      
+                                margin: 0,
+                                pagination: false,
+                                pullDrag: true,
+                                mouseDrag: true,  
+                                dots: true,   
+                                nav: true,
+                                navText: ['<див class="owl-slider__prev"</див>',
+                                 '<див class="owl-slider__next"</див>'],                                
+                                // navContainer: '#owl-slider__nav',            
+                                responsive: {
+                                    0: {
+                                        items: 1
+                                    },
+                                    768: {
+                                        items: 1                    
+                                    }
+                                }      
+                            });
+                        }
+
+                    });
+
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+
+                +owl-slider({id:'owl-slider'}).e-owl-carousel__items
+                    +e.__slide.e-owl-carousel__slide
+                        +e.IMG.__img(src='%=static=%/img/content/1.jpg')
+
+                    +e.__slide.e-owl-carousel__slide
+                        +e.IMG.__img(src='%=static=%/img/content/2.jpg')
+
+                    +e.__slide.e-owl-carousel__slide
+                        +e.IMG.__img(src='%=static=%/img/content/3.jpg')
+
+                +owl-slider__nav          
+        
+                

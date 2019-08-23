@@ -1,0 +1,139 @@
+include ../tabs/tabs
+include ../tabs/tab/tab
+
+
+mixin e-tabs(data)
+    +b.e-tabs()&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | tabs
+
+        +e.__source.b-plugins__source
+            | ссылка:
+            +e.A.__link.b-plugins__link(href='https://jqueryui.com/tabs/#default')
+                | tabs
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE.    
+                    include ../tabs/tabs
+                    include ../tabs/tab/tab
+
+                    +tabs({id: 'tabs1'})
+                        +tab({title:'первый', href:'tab1'})               
+
+                        +tab({title:'второй', href:'tab2'})
+
+                        +tab({title:'третий', href:'tab3'})
+
+                        +e.__block(id='tab1')
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+
+                        +e.__block(id='tab2')
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+
+                        +e.__block(id='tab3')
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+                            |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            |Eaque, molestias minima temporibus labore quibusdam, 
+                            |repudiandae dolores error 
+                            |incidunt accusamus dicta perferendis excepturi? 
+                            |Magnam beatae est explicabo, odio at molestiae id!
+
+            .helper-item__js
+                +e.H2.h2.helper-item__title
+                    | js
+
+                +e.PRE. 
+                    import Component from 'helpers-js/Component';
+                    require('jquery-ui/ui/widgets/tabs');
+
+                    export default Component.create('e-tabs', class {
+                        constructor($block) {
+                            this.$block = $block;
+                            this.init();
+                        }
+
+                        init() {
+                            let tabs1 = document.getElementById('tabs1');
+
+                            $(tabs1).tabs();
+                        }
+
+                    });
+
+                   
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+
+                +tabs({id: 'tabs1'})
+                    +tab({title:'первый', href:'tab1'})               
+
+                    +tab({title:'второй', href:'tab2'})
+
+                    +tab({title:'третий', href:'tab3'})
+
+                    +e.__block(id='tab1')
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+
+                    +e.__block(id='tab2')
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+
+                    +e.__block(id='tab3')
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+                        |Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        |Eaque, molestias minima temporibus labore quibusdam, 
+                        |repudiandae dolores error 
+                        |incidunt accusamus dicta perferendis excepturi? 
+                        |Magnam beatae est explicabo, odio at molestiae id!
+

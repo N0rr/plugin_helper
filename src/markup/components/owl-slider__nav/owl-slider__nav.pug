@@ -1,0 +1,9 @@
+mixin owl-slider__nav(data)
+    +b.owl-slider__nav()&attributes(attributes)
+        if (data != underfined)
+            +e.prev=data.prev
+            +e.next=data.next
+
+        else
+            +e.prev
+            +e.next

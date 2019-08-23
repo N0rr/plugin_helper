@@ -1,0 +1,128 @@
+.slide-menu {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    width: rem(1);
+
+    @include above($tablet) {
+      width: 100%;
+    }
+
+      
+      @include above($tablet) {
+        &_desk {
+          .slide-menu__menu-btn {
+            display: none;
+          }
+  
+          .slide-menu__menu {
+            transform: none;
+          }
+        }
+      }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        width: rem(320);       
+
+        background: rgb(70, 40, 109);
+
+        transform: translateX(rem(320));
+        
+        transition-duration: 300ms;
+
+        @include above($tablet) {  
+          left: 0;
+
+          flex-direction: row;
+          width: 100%;
+          margin-left: 0;          
+        }
+    }
+
+    &__link {
+      width: 100%;
+      padding: rem(10);
+
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      text-transform: capitalize;
+
+      border-bottom: 1px solid rgb(158, 131, 194);
+
+      &:hover {
+        background: rgb(158, 131, 194);
+      }
+      &:active {
+        background: rgb(158, 131, 194);
+      }
+    }
+
+    .js-menu-open &__menu{        
+        transform: translateX(0);
+    }
+
+    &__menu-btn {  
+        position: relative;
+        left: 0;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: rem(60);
+        height: rem(60);
+
+        background: rgb(66, 54, 119);
+
+        cursor: pointer;
+      }
+      
+      &__bar {
+        display: block;
+        width: rem(30);
+        height: rem(4);
+
+        background: #fff;
+
+        transition: 0.3s ease-out;     
+      }
+      
+      &__bar-2 {  
+        margin-top: rem(9);  
+      }
+      
+      &__bar-3 {  
+        margin-top: rem(9);  
+      }
+      
+      .js-menu-open &__bar-1 {
+        position: absolute;
+
+        margin: 0;
+
+        transform: translateY(0) rotate(45deg);
+      }
+      
+      .js-menu-open &__bar-2 {
+        height: 0;
+
+        opacity: 0; 
+      }
+      
+      .js-menu-open &__bar-3 {
+        position: absolute;
+
+        margin: 0;
+
+        transform:  translateY(0) rotate(-45deg);
+      }
+}

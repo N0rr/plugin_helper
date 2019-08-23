@@ -1,0 +1,7 @@
+mixin select(data)
+    +b.select()&attributes(attributes)
+        +e.SELECT.__select
+            +e.OPTION.__option
+            if (data)  
+                each option in data.options
+                    +e.OPTION.__option= option

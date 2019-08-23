@@ -1,0 +1,11 @@
+include ../owl-slider/owl-slider
+
+
+mixin helper-item(data)
+    +b.helper-item()&attributes(attributes)
+        +owl-slider({id:'helper-slider-js'}).helper-item__container
+            block
+            //- +e.__pug-code
+            //- +e.__scss-code
+            //- +e.__js-code
+            

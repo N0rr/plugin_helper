@@ -1,0 +1,12 @@
+mixin swiper-menu(data)
+    +b.swiper-menu()&attributes(attributes)
+        +e.__container.swiper-container
+            +e.__wrapper.swiper-wrapper
+                +e.menu.swiper-slide
+                    block
+
+                +e.content.slide.swiper-slide
+                    +e.menu-button.menu-button
+                        +e.bar.swiper-menu__bar-1
+                        +e.bar.swiper-menu__bar-2
+                        +e.bar.swiper-menu__bar-3

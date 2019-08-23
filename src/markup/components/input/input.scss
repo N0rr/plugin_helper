@@ -1,0 +1,56 @@
+.input {
+    &_default {
+        display: flex;
+        flex-direction: column;
+        padding: rem(20);
+
+        & .input__input {
+            padding: rem(10);
+            margin-top: rem(20);
+
+            font-size: rem(17);
+
+            color: #000;
+
+            border: none;
+            border-radius: rem(5);            
+        }
+
+        & .input__input.invalid {
+            border: rem(2) solid rgb(226, 137, 137);
+        }
+
+        & .input__label {
+            font-size: rem(17);
+        }
+
+        & .input__error-msg {
+            margin-top: rem(10);
+
+            font-size: rem(14);
+            color: rgb(226, 137, 137);
+        }
+    }
+
+    &__input-error-msg {
+        font-style: rem(12);
+        color: #fff;
+
+        background: rgb(116, 65, 182);
+    }
+
+   &__submit {
+        display: block;
+        padding: rem(20);
+        margin: auto;
+
+        font-size: rem(20);
+
+        color: $color-1;
+
+        &:hover {
+            border: rem(2) solid $color-1;
+        }
+        
+    }
+}

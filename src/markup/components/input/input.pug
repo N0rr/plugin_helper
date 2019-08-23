@@ -1,0 +1,7 @@
+mixin input(data)
+    +b.input(class=data.theme ? `input_${data.theme}` : '')&attributes(attributes)  
+        +e.LABEL.__label(for=data.name)=data.name
+        +e.INPUT.__input(type=data.type || 'text' class=data.class +' input__error' name=data.name id=data.name data-error-msg=data.class + '-error' required)
+        +e.__error-msg(class=data.class + '-error')
+            
+        block

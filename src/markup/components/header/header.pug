@@ -1,4 +1,33 @@
+include ../swiper-menu/swiper-menu
+include ../slide-menu/slide-menu
+include ../scrollto/scrollto
+
+
 mixin header(data)
     +b.HEADER.header()&attributes(attributes)
-        | hello
-        
+        +e.NAV.__nav           
+            
+            +slide-menu().header__menu.scroll-to-container-js
+                +scrollto({href: 'e-owl-carousel'}).slide-menu__link 
+                    | owl-carousel
+
+                +scrollto({href: 'e-ui-slider'}).slide-menu__link 
+                    | ui-slider
+
+                +scrollto({href: 'e-inputmask'}).slide-menu__link 
+                    | inputmask
+
+                +scrollto({href: 'e-accordion'}).slide-menu__link 
+                    | accordion
+
+                +scrollto({href: 'e-magnific-popup'}).slide-menu__link 
+                    | jquery-modal
+
+                +scrollto({href: 'e-select2'}).slide-menu__link 
+                    | select2
+
+                +scrollto({href: 'e-scroll'}).slide-menu__link 
+                    | scrollto
+
+                +scrollto({href: 'e-tabs'}).slide-menu__link 
+                    | tabs

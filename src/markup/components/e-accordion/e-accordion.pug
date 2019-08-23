@@ -1,0 +1,68 @@
+include ../accordion-pl/accordion-pl
+
+mixin e-accordion(data)
+    +b.e-accordion()&attributes(attributes)
+        +e.H1.__title.b-plugins__title
+            | Accordion
+
+        +e.__source.b-plugins__source
+            | ссылка:
+            +e.A.__link.b-plugins__link(href='https://jqueryui.com/accordion/')
+                | Accordion
+        
+        +helper-item
+            .helper-item__pug
+                +e.H2.h2.helper-item__title
+                    | Pug
+                +e.PRE.                    
+                    include ../accordion-pl/accordion-pl
+
+                    +accordion-pl
+                
+            .helper-item__scss
+                +e.H2.h2.helper-item__title
+                    | scss
+                +e.PRE.    
+                    .accordion-pl {    
+
+                        &__title {
+                            font-size: rem(14) !important;
+                        }
+
+                        &__block {
+                            
+                            font-size: rem(14) !important;
+                        }
+                    }                
+
+                    
+
+
+            .helper-item__js
+                +e.H2.h2.helper-item__title
+                    | js
+
+                +e.PRE. 
+                    import Component from 'helpers-js/Component';
+                    require('jquery-ui/ui/widgets/accordion');
+
+                    export default Component.create('accordion-pl', class {
+                        constructor($block) {
+                            this.$block = $block;
+                            this.init();
+                        }
+
+                        init() {
+                            $(".accordion-pl").accordion({
+                                collapsible: true,
+                                icons: false,
+                                heightStyle: "fill"      
+                            });
+                        }
+                    });           
+
+            .helper-item__result
+                +e.H2.h2.helper-item__title
+                    | result
+                +e.__block.e-accordion__block
+                    +accordion-pl

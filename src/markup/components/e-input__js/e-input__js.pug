@@ -1,0 +1,89 @@
+mixin e-input__js(data)
+    +b.PRE.e-input__js()&attributes(attributes).
+        import Component from 'helpers-js/Component';
+        import Inputmask from 'inputmask';
+        import 'jquery-validation';
+
+        export default Component.create('input', class {
+            constructor($block) {
+                this.$block = $block;
+                this.init();
+            }
+
+            init() {  
+                let form = document.querySelector('.e-inputmask__form');
+                let inputPhone = document.querySelector('.input-phone-js');       
+
+                let inputMaskPhone = new Inputmask({
+                    mask: "+7(999)999-99-99"
+                    // regex: "[0-9]*",
+                    // isComplete: function(buffer, opts) {
+                    //     return new RegExp(opts.regex).test(buffer.join(''));
+                    // }        
+                }); inputMaskPhone.mask(inputPhone);
+
+                // let inputMaskEmail = new Inputmask({
+                //     // mask: '*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]'
+                // )}; inputMaskEmail(inputEmail);
+
+                $(form).validate({
+                    errorClass: 'invalid',
+                    validClass: 'valid',
+                    ignoreTitle: true,
+                    errorElement: 'span',
+                    errorPlacement: function(error, element) {
+                        let errorBlock = document.querySelector('.' + $(element).attr('data-error-msg'));
+                        
+                        error.appendTo(errorBlock);
+                    },
+                    highlight: function(element, errorClass, validClass) {                
+                        let errorBlock = document.querySelector('.' + $(element).attr('data-error-msg'));
+
+                        $(element).addClass(errorClass).removeClass(validClass);                                
+                        $(errorBlock).addClass(errorClass);
+                    },        
+                    unhighlight: function(element, errorClass, validClass) {
+                        let errorBlock = document.querySelector('.' + $(element).attr('data-error-msg'));
+
+                        $(element).removeClass(errorClass).addClass(validClass);
+                        $(errorBlock).removeClass(errorClass);
+                    },            
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        phone: {
+                            required: true,
+                            phone: true
+                        }
+                    },
+                    messages: {
+                        email: {
+                            required: 'необходимо ввести адрес почты'                    
+                        },
+                        phone: {
+                            required: 'ну оставь номер, че как не свой ?'                    
+                        }
+                    }
+                });
+
+                $.validator.addMethod("email", function(value, element) {           
+                    return this.optional(element) || /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(value);
+                }, 'Пожайлуста введите коректный email');
+
+            
+                $.validator.addMethod('phone', function (value, element) {
+                    return this.optional(element) || /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/.test(value); 
+                }, 'Введите корректный номер телефона');
+
+            }
+
+            validateEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+        });
+
+
+

@@ -1,0 +1,77 @@
+.ui-slide {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    width: 90%;
+    padding: 0 rem(20);
+
+    &__label {
+        display: block;
+        padding: rem(20);
+
+        font-size: rem(20);            
+    }
+
+    &__slider {
+        width: rem(160);
+        height: rem(22);
+        margin-right: rem(30);
+
+        background: rgb(161, 161, 161);
+    }
+
+    & .ui-slider-handle {
+        top: rem(-2);
+
+        width: rem(24);
+        height: rem(24);
+
+        border: 2px solid #333;
+        border-radius: 50%;
+        background: rgb(49, 126, 177);
+
+        cursor: pointer;
+
+        &:hover {
+            background: rgb(136, 219, 59);
+        }
+    }
+
+    & .ui-slider-range-min {        
+        height: rem(20);
+
+        background: rgb(157, 220, 231);
+    }
+
+    &__input-block {
+        margin-bottom: rem(10);        
+        margin-left: auto;
+    }
+
+    &__input {
+        width: rem(50);
+        height: rem(20);
+        padding: rem(5);
+        margin-right: rem(20);
+
+        font-size: rem(15);
+        font-weight: bold;
+        color: #000;        
+
+        border: none;
+        border-radius: rem(2);
+        background: #fff;
+    }
+
+    &--active {
+        
+        .ui-slider-handle {
+            border: none;
+            background: rgb(136, 219, 59);
+        }
+
+        .ui-slider-range-min {
+            background: rgb(219, 219, 219);
+        }
+    }
+}

@@ -1,0 +1,6 @@
+mixin popup(data)
+    +b.popup()&attributes(attributes)
+        +e.A.__open-popup(rel='modal:open' href='#' + data.id)=data.btnText
+
+        +e.__container(class=data.id + ' modal' id=data.id)
+            block

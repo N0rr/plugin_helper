@@ -1,0 +1,24 @@
+include ../swiper-slider/swiper-slider
+include ../e-owl-carousel/e-owl-carousel
+include ../e-ui-slider/e-ui-slider
+include ../e-swiper-menu/e-swiper-menu
+include ../e-inputmask/e-inputmask
+include ../e-accordion/e-accordion
+include ../e-magnific-popup/e-magnific-popup
+include ../e-select2/e-select2
+include ../e-scroll/e-scroll
+include ../e-tabs/e-tabs
+
+
+
+mixin b-plugins(data)
+    +b.b-plugins()&attributes(attributes)
+        +e-owl-carousel
+        +e-ui-slider        
+        +e-inputmask
+        +e-accordion
+        +e-magnific-popup
+        +e-select2
+        +e-scroll
+        +e-tabs
+

@@ -1743,6 +1743,7 @@ a {
 .owl-slider__nav {
   position: absolute;
   top: 40%;
+  left: 0;
   width: 100%;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 3.75rem;
@@ -2505,6 +2506,7 @@ a {
 .owl-slider__nav {
   position: absolute;
   top: 40%;
+  left: 0;
   width: 100%;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 3.75rem;

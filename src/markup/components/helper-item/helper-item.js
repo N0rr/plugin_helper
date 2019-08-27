@@ -10,9 +10,8 @@ export default Component.create('helper-item', class {
     init() {
         this.helperSlider = document.querySelectorAll('#helper-slider-js');
 
-        window.addEventListener('load', e => {
-            this.checkOwl();
-        });
+        this.checkOwl();
+
         window.addEventListener('resize', e => {
             this.checkOwl();
         });

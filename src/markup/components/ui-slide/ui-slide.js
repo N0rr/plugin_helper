@@ -1,4 +1,5 @@
 import Component from 'helpers-js/Component';
+import { forEach } from 'helpers-js/for-each';
 
 require('jquery-ui/ui/widgets/slider');
 
@@ -47,7 +48,7 @@ export default Component.create('ui-slide', class {
             }
         });
 
-        uiSliders.forEach((e, i) => { // Группа range-slider
+        forEach(uiSliders, (e, i) => { // Группа range-slider
             let that = this;
 
             let $rangeBlock = $(e).closest('.ui-slide__item-values');

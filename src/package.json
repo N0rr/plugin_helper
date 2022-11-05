@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "eslint": "^3.12.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "husky": "^3.0.2",
     "inputmask": "^4.0.8",
     "jquery": "^3.1.0",
